@@ -124,7 +124,6 @@ public class SkiServlet extends HttpServlet {
 		}
 		if (article != null && !article.trim().isEmpty()) {
 			result.setArticle(article.trim());
-
 		}
 		if (description != null && !description.trim().isEmpty()) {
 			result.setDescription(description.trim());
