@@ -17,20 +17,20 @@ public class Entity {
         this.id = id;
     }
 
-	@Override
-	public int hashCode() {
-		return 31 + id;
-	}
+    @Override
+    public int hashCode() {
+        return 31 + id;
+    }
 
-	@Override
-	public boolean equals(Object other) {
-		if (this == other) {
-			return true;
-		}
-		if (other == null || getClass() != other.getClass()) {
-			return false;
-		}
-		Entity that = (Entity) other;
-		return id == that.id;
-	}
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        }
+        if (other == null || getClass() != other.getClass()) {
+            return false;
+        }
+        Entity that = (Entity) other;
+        return id == that.id;
+    }
 }
