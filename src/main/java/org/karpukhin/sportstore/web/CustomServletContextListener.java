@@ -1,6 +1,7 @@
 package org.karpukhin.sportstore.web;
 
 import org.karpukhin.sportstore.core.ApplicationException;
+import org.karpukhin.sportstore.core.dao.SkiBootDaoImpl;
 import org.karpukhin.sportstore.core.dao.SkiDao;
 import org.karpukhin.sportstore.core.dao.SkiDaoImpl;
 
@@ -27,10 +28,10 @@ public class CustomServletContextListener implements ServletContextListener {
         try {
             Class.forName(JDBC_DRIVER);
             Connection connection = DriverManager.getConnection(JDBC_URL);
-            SkiDao skiDao = new SkiDaoImpl(connection);
             ServletContext context = sce.getServletContext();
             context.setAttribute(CONNECTION_ATTR, connection);
-            context.setAttribute("skiDao", skiDao);
+            context.setAttribute("skiDao", new SkiDaoImpl(connection));
+            context.setAttribute("skiBootDao", new SkiBootDaoImpl(connection));
         } catch (SQLException e) {
             throw new ApplicationException(e.getMessage(), e);
         } catch (ClassNotFoundException e) {
@@ -53,6 +54,5 @@ public class CustomServletContextListener implements ServletContextListener {
         } catch (SQLException e) {
             throw new ApplicationException(e.getMessage(), e);
         }
-
     }
 }
