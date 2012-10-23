@@ -99,8 +99,9 @@ public class SkiServlet extends HttpServlet {
 
 	private void remove(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter(ID_PARAM));
-		skiDao.removeSkiById(id);
-		response.sendRedirect(getServletContext().getContextPath() + request.getServletPath());
+        Ski ski = skiDao.findSkiById(id);
+        request.setAttribute(MODEL_ATTR, ski);
+        request.getRequestDispatcher("/WEB-INF/views/remove.jsp").forward(request, response);
 	}
 
 	public Ski extractModel(HttpServletRequest request) {
