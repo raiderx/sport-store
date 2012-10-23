@@ -11,6 +11,8 @@ import javax.servlet.ServletContextListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Pavel Karpukhin
@@ -23,6 +25,8 @@ public class CustomServletContextListener implements ServletContextListener {
 
     public static final String CONNECTION_ATTR = "connection";
 
+    private final Logger logger = Logger.getLogger(getClass().getName());
+
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         try {
@@ -33,8 +37,10 @@ public class CustomServletContextListener implements ServletContextListener {
             context.setAttribute("skiDao", new SkiDaoImpl(connection));
             context.setAttribute("skiBootDao", new SkiBootDaoImpl(connection));
         } catch (SQLException e) {
+            logger.log(Level.SEVERE, e.getMessage(), e);
             throw new ApplicationException(e.getMessage(), e);
         } catch (ClassNotFoundException e) {
+            logger.log(Level.SEVERE, e.getMessage(), e);
             throw new ApplicationException(e.getMessage(), e);
         }
     }
@@ -47,11 +53,13 @@ public class CustomServletContextListener implements ServletContextListener {
                 connection.close();
             }
         } catch (SQLException e) {
+            logger.log(Level.SEVERE, e.getMessage(), e);
             throw new ApplicationException(e.getMessage(), e);
         }
         try {
             DriverManager.deregisterDriver(DriverManager.getDriver(JDBC_URL));
         } catch (SQLException e) {
+            logger.log(Level.SEVERE, e.getMessage(), e);
             throw new ApplicationException(e.getMessage(), e);
         }
     }

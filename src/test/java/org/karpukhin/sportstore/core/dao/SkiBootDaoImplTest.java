@@ -17,6 +17,7 @@ import static org.junit.Assert.*;
  * @author Pavel Karpukhin
  */
 public class SkiBootDaoImplTest {
+
     public static final String JDBC_URL = "jdbc:derby:memory:sport-store;create=true";
     public static final String SQL_INSERT_SKI_BOOT =
             "INSERT INTO SKI_BOOT (BRAND, NAME, ARTICLE, FLEX_INDEX, MIN_SIZE, MAX_SIZE, DESCRIPTION, COLOR, PRICE) " +

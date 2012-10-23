@@ -33,13 +33,15 @@ public class SkiServlet extends HttpServlet {
 	public static final String EDIT_ACTION = "edit";
 	public static final String REMOVE_ACTION = "remove";
 
-	private SkiDao skiDao;
+    private final Logger logger = Logger.getLogger(getClass().getName());
+
+    private SkiDao skiDao;
 
 	@Override
 	public void init() throws ServletException {
         skiDao = (SkiDao)getServletContext().getAttribute("skiDao");
         if (skiDao == null) {
-			log("Bean 'skiDao' was not found");
+            logger.log(Level.SEVERE, "Bean 'skiDao' was not found");
 			throw new ApplicationException("Bean 'skiDao' was not found");
         }
 	}

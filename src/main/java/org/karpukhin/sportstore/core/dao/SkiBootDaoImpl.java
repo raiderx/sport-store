@@ -6,6 +6,8 @@ import org.karpukhin.sportstore.core.model.SkiBoot;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Pavel Karpukhin
@@ -46,6 +48,8 @@ public class SkiBootDaoImpl implements SkiBootDao {
             "PRICE DECIMAL(10, 2) NOT NULL" +
             ")";
 
+    private final Logger logger = Logger.getLogger(getClass().getName());
+
     private Connection connection;
 
     public SkiBootDaoImpl(Connection connection) {
@@ -76,6 +80,7 @@ public class SkiBootDaoImpl implements SkiBootDao {
                 skiBoot.setId(resultSet.getInt(1));
             }
         } catch (SQLException e) {
+            logger.log(Level.SEVERE, e.getMessage(), e);
             throw new ApplicationException(e.getMessage(), e);
         } finally {
             close(statement, resultSet);
@@ -103,6 +108,7 @@ public class SkiBootDaoImpl implements SkiBootDao {
                 throw new ApplicationException("%d rows were updated but 1 was expected only", rows);
             }
         } catch (SQLException e) {
+            logger.log(Level.SEVERE, e.getMessage(), e);
             throw new ApplicationException(e.getMessage(), e);
         } finally {
             close(statement, resultSet);
@@ -121,6 +127,7 @@ public class SkiBootDaoImpl implements SkiBootDao {
                 throw new ApplicationException("%d rows were deleted but 1 was expected only", rows);
             }
         } catch (SQLException e) {
+            logger.log(Level.SEVERE, e.getMessage(), e);
             throw new ApplicationException(e.getMessage(), e);
         } finally {
             close(statement, resultSet);
@@ -143,6 +150,7 @@ public class SkiBootDaoImpl implements SkiBootDao {
                 }
             }
         } catch (SQLException e) {
+            logger.log(Level.SEVERE, e.getMessage(), e);
             throw new ApplicationException(e.getMessage(), e);
         } finally {
             close(statement, resultSet);
@@ -162,6 +170,7 @@ public class SkiBootDaoImpl implements SkiBootDao {
                 result.add(map(resultSet));
             }
         } catch (SQLException e) {
+            logger.log(Level.SEVERE, e.getMessage(), e);
             throw new ApplicationException(e.getMessage(), e);
         } finally {
             close(statement, resultSet);
@@ -190,6 +199,7 @@ public class SkiBootDaoImpl implements SkiBootDao {
             statement = connection.createStatement();
             statement.execute(SQL_CREATE_TABLE);
         } catch (SQLException e) {
+            logger.log(Level.SEVERE, e.getMessage(), e);
             throw new ApplicationException("SKI_BOOT table was not created", e);
         } finally {
             close(statement, null);
@@ -205,6 +215,7 @@ public class SkiBootDaoImpl implements SkiBootDao {
                 resultSet.close();
             }
         } catch (SQLException e) {
+            logger.log(Level.SEVERE, e.getMessage(), e);
             throw new ApplicationException(e.getMessage(), e);
         }
     }

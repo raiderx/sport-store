@@ -6,6 +6,8 @@ import org.karpukhin.sportstore.core.model.Ski;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Pavel Karpukhin
@@ -42,6 +44,7 @@ public class SkiDaoImpl implements SkiDao {
             "PRICE DECIMAL(10, 2) NOT NULL" +
             ")";
 
+    private final Logger logger = Logger.getLogger(getClass().getName());
 
     private Connection connection;
 
@@ -69,6 +72,7 @@ public class SkiDaoImpl implements SkiDao {
                 ski.setId(resultSet.getInt(1));
             }
         } catch (SQLException e) {
+            logger.log(Level.SEVERE, e.getMessage(), e);
             throw new ApplicationException(e.getMessage(), e);
         } finally {
             close(statement, resultSet);
@@ -92,6 +96,7 @@ public class SkiDaoImpl implements SkiDao {
                 throw new ApplicationException("%d rows were updated but 1 was expected only", rows);
             }
         } catch (SQLException e) {
+            logger.log(Level.SEVERE, e.getMessage(), e);
             throw new ApplicationException(e.getMessage(), e);
         } finally {
             close(statement, resultSet);
@@ -110,6 +115,7 @@ public class SkiDaoImpl implements SkiDao {
                 throw new ApplicationException("%d rows were deleted but 1 was expected only", rows);
             }
         } catch (SQLException e) {
+            logger.log(Level.SEVERE, e.getMessage(), e);
             throw new ApplicationException(e.getMessage(), e);
         } finally {
             close(statement, resultSet);
@@ -132,6 +138,7 @@ public class SkiDaoImpl implements SkiDao {
                 }
             }
         } catch (SQLException e) {
+            logger.log(Level.SEVERE, e.getMessage(), e);
             throw new ApplicationException(e.getMessage(), e);
         } finally {
             close(statement, resultSet);
@@ -151,6 +158,7 @@ public class SkiDaoImpl implements SkiDao {
                 result.add(map(resultSet));
             }
         } catch (SQLException e) {
+            logger.log(Level.SEVERE, e.getMessage(), e);
             throw new ApplicationException(e.getMessage(), e);
         } finally {
             close(statement, resultSet);
@@ -190,6 +198,7 @@ public class SkiDaoImpl implements SkiDao {
                 resultSet.close();
             }
         } catch (SQLException e) {
+            logger.log(Level.SEVERE, e.getMessage(), e);
             throw new ApplicationException(e.getMessage(), e);
         }
     }

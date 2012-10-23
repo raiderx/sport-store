@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Pavel Karpukhin
@@ -25,13 +27,15 @@ public class SkiBootServlet extends HttpServlet {
     public static final String EDIT_ACTION = "edit";
     public static final String REMOVE_ACTION = "remove";
 
+    private final Logger logger = Logger.getLogger(getClass().getName());
+
     private SkiBootDao skiBootDao;
 
     @Override
     public void init() throws ServletException {
         skiBootDao = (SkiBootDao) getServletContext().getAttribute("skiBootDao");
         if (skiBootDao == null) {
-            log("Bean 'skiBootDao' was not found");
+            logger.log(Level.SEVERE, "Bean 'skiBootDao' was not found");
             throw new ApplicationException("Bean 'skiBootDao' was not found");
         }
     }
