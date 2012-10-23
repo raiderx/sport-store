@@ -1,3 +1,6 @@
+<%--
+    @author Pavel Karpukhin
+--%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="org.karpukhin.sportstore.core.model.Ski" %>
