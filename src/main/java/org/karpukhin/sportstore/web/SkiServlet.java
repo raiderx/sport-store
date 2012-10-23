@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Pavel Karpukhin
@@ -82,26 +84,26 @@ public class SkiServlet extends HttpServlet {
 			throws ServletException, IOException {
 		List<Ski> list = skiDao.findAllSki();
 		request.setAttribute(MODEL_ATTR, list);
-		request.getRequestDispatcher("/WEB-INF/views/list.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/ski/list.jsp").forward(request, response);
 	}
 
 	private void create(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute(MODEL_ATTR, new Ski());
-		request.getRequestDispatcher("/WEB-INF/views/createEdit.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/ski/createEdit.jsp").forward(request, response);
 	}
 
 	private void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter(ID_PARAM));
 		Ski ski = skiDao.findSkiById(id);
 		request.setAttribute(MODEL_ATTR, ski);
-		request.getRequestDispatcher("/WEB-INF/views/createEdit.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/ski/createEdit.jsp").forward(request, response);
 	}
 
 	private void remove(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter(ID_PARAM));
         Ski ski = skiDao.findSkiById(id);
         request.setAttribute(MODEL_ATTR, ski);
-        request.getRequestDispatcher("/WEB-INF/views/remove.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/views/ski/remove.jsp").forward(request, response);
 	}
 
 	public Ski extractModel(HttpServletRequest request) {
