@@ -1,0 +1,297 @@
+#edit_panel_content{
+	padding: 0 0 0 140px;
+	
+}
+#edit_panel table{
+	text-align:left;
+}
+.edit_panel_textarea{
+	height: 120px;
+}
+.edit_panel_button{
+	height: 30px; 
+	width: 120px;
+}
+.title{
+	font-size: 120%;
+	font-weight:bold;
+	padding-bottom:7px;
+}
+.input{
+	width: 300px;
+}
+.size_input {
+	width: 140px;
+}
+#edit_panel{
+	color:#555;
+	padding:20px;
+}
+/*---------------------------*/
+.row{
+	float:left;
+	display:block;
+}
+.img{
+	height: 100px;
+	width: 100px;	
+}
+.info{
+	height: 75px;
+	width: 400px;
+	color: #bbbbbb;
+	padding-left: 20px;
+	padding-top: 5px;
+	font-size: 12px;
+	line-height: 16px;
+}
+.dop_info{
+	height: 80px;
+	width: 165px;	
+	font-size: 12px;
+	line-height: 15px;
+	padding-left: 15px;
+	color: #555;
+}
+
+.elem_header{
+	height: 24px;	
+	padding-left: 20px;
+	padding-top: 2px;	
+	font-weight:bold;
+}
+.elem_middle{
+	min-height:80px;
+	padding-left: 10px;
+	padding-bottom: 31px;
+}
+.elem_footer{
+	margin-top:-31px;
+	height: 31px;		
+	padding-left: 10px;
+}
+.cost{
+	float:left;
+	width:99px;
+	height:20px;
+	background-image:url(../images/cost_bg1.png);
+	background-repeat: no-repeat;
+	text-align:center;
+	font-weight:bold;
+	padding-top: 7px;
+	color: #0067b4;
+}
+.edit{
+	margin-left: 360px;
+	padding-top: 7px;	
+}
+.edit a{
+	color: #bbbbbb;
+}
+
+.delete{
+	margin-left: 15px;
+	padding-top: 7px;	
+}
+.delete a{
+	color: #bbbbbb;
+}
+.elem{
+	width: 720px;
+	margin-top:10px;	
+}
+.elem_top{
+	height:4px;
+	background-image:url(../images/item_bg_top.png);
+}
+.elem_midle{
+	min-height:140px;
+	background-image:url(../images/item_bg_midle.png);
+}
+.elem_bottom{
+	height:4px;
+	background-image:url(../images/item_bg_bottom.png);
+}
+.menu{
+	width:223px;	
+}
+#s1{
+	height:7px;
+	background-image:url(../images/menu_bg_top.png);
+}
+#s2{
+	min-height:400px;
+	background-image:url(../images/menu_bg_midle.png);
+	
+}
+#s3{
+	height:4px;
+	background-image:url(../images/menu_bg_bottom.png);
+}
+#menu{
+	padding:10px;
+}
+#menu ul{
+	padding-left:20px;
+	
+}
+.link{
+	border-bottom:1px dotted #666;
+	background-image: url(../images/menu_link_icon.png);
+	background-repeat:no-repeat;
+	background-position: 10px 6px;
+	padding-left:25px;
+	padding-bottom:2px;
+	margin-top:2px;
+}
+#menu_title{
+	
+	font-weight:bold;
+	text-indent:20px;
+	font-size:15px;
+	line-height: 26px;
+}
+.header{
+	float: left;
+	display:block;
+	height: 88px;
+}
+#title{
+	float: left;
+	width:429px;
+	height:36px;
+	background-image:url(../images/title.png);
+	background-repeat:no-repeat;
+	margin-top: 25px;
+}
+#brands{
+	float: right;
+	width:429px;
+	height:36px;
+	width:288px;
+	height:82px;
+	background-image:url(../images/brands.png);
+}
+#h1{	
+	width:200px;
+	background-image:url(../images/header_bg1.png);
+}
+#h3{	
+	width:92px;
+	background-image:url(../images/header_bg3.png);
+}
+.footer{
+	float: left;
+	display:block;
+	height: 28px;
+}
+#f1{	
+	width:200px;
+	background-image:url(../images/header_bg1.png);
+}
+#f3{	
+	width:36px;
+	background-image:url(../images/footer_bg3.png);
+}
+#copy{
+	text-align:center;
+	padding-right:200px;
+	color: #fff;
+	font-weight:bold;	
+	line-height: 26px;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+html {
+	height: 100%;
+}
+body {
+	font: 12px/18px Arial, Tahoma, Verdana, sans-serif;
+	height: 100%;
+}
+a {
+	color: #222;
+	outline: none;
+	text-decoration: none;
+}
+a:hover {
+	
+	text-decoration: underline;
+}
+p {
+	margin: 0 0 18px
+}
+img {
+	border: none;
+}
+input {
+	vertical-align: middle;
+}
+#wrapper {
+	width: 100%;
+	min-width: 1050px;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+
+/* Header
+-----------------------------------------------------------------------------*/
+#header {
+	height: 88px;
+	
+	background-image:url(../images/header_bg2.png);
+	
+}
+
+
+/* Middle
+-----------------------------------------------------------------------------*/
+#middle {
+	width: 1000px;	
+	margin: auto;	
+	padding-top:10px;
+	padding-bottom: 28px;
+}
+#middle:after {
+	content: '.';
+	display: block;
+	clear: both;
+	visibility: hidden;
+	height: 0;
+}
+#container {
+	width: 100%;
+	float: left;
+	overflow: hidden;
+}
+#content {
+	padding: 0 0 0 250px;
+	
+}
+
+
+/* Sidebar Left
+-----------------------------------------------------------------------------*/
+#sideLeft {
+	float: left;
+	width: 250px;
+	margin-left: -100%;
+	position: relative;
+	padding-top:10px;
+	padding-left:15px;
+	
+}
+
+
+/* Footer
+-----------------------------------------------------------------------------*/
+#footer {
+	margin: -28px auto 0;
+	min-width: 1000px;
+	height: 28px;
+	background-image:url(../images/header_bg2.png);
+}
