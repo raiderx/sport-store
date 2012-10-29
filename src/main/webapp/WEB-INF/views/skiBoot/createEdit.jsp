@@ -37,7 +37,7 @@
                             <div class="elem_midle">
 
                                 <div id="edit_panel" align="center">
-                                    <div class="title"> Добавить новую запись </div>
+                                    <div class="title"> <% if (skiBoot.getId() == 0) { %>Добавить новую<% } else { %>Редактировать<% } %> запись </div>
                                     <form action="<%=contextPath%><%=servletPath%>" method="post">
                                         <input type="hidden" name="action" value="<%=skiBoot.getId() == 0 ? "create" : "edit"%>" />
                                         <input type="hidden" name="id" value="<%=FormatUtils.encode(skiBoot.getId())%>" />
