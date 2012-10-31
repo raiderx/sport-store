@@ -5,7 +5,7 @@
 <%@ page import="org.karpukhin.sportstore.core.model.SkiBoot" %>
 <%@ page import="org.karpukhin.sportstore.web.FormatUtils" %>
 <%
-    String contextPath = (String)request.getContextPath();
+    String contextPath = request.getContextPath();
     String servletPath = (String)request.getAttribute("javax.servlet.forward.servlet_path");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
