@@ -5,10 +5,11 @@
 <%@ page import="org.karpukhin.sportstore.core.model.SkiBoot" %>
 <%@ page import="org.karpukhin.sportstore.web.FormatUtils" %>
 <%
-    String contextPath = (String)request.getAttribute("javax.servlet.forward.context_path");
+    String contextPath = request.getContextPath();
     String servletPath = (String)request.getAttribute("javax.servlet.forward.servlet_path");
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -52,7 +53,7 @@
                                             <tr> <td> Цена: </td> <td> <%=skiBoot.getPrice()%> </td> </tr>
                                         </table>
                                         <input type="submit" value="Да" class="edit_panel_button" />
-                                        <input type="button" value="Нет" onclick="window.location='<%=contextPath%><%=servletPath%>?action=list'" class="edit_panel_button" />
+                                        <input type="button" value="Нет" onclick="window.location='<%=contextPath%><%=servletPath%>'" class="edit_panel_button" />
                                     </form>
                                 </div>
                             </div>
