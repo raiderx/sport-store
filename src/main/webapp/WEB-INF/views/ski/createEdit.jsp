@@ -5,7 +5,7 @@
 <%@ page import="org.karpukhin.sportstore.core.model.Ski" %>
 <%@ page import="org.karpukhin.sportstore.web.FormatUtils" %>
 <%
-    String contextPath = (String)request.getAttribute("javax.servlet.forward.context_path");
+    String contextPath = (String)request.getContextPath();
     String servletPath = (String)request.getAttribute("javax.servlet.forward.servlet_path");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -20,7 +20,7 @@
         <h1> <% if (ski.getId() == 0) { %>Добавить новую<% } else { %>Редактировать<% } %> запись </h1>
         <form action="<%=contextPath%><%=servletPath%>" method="post">
             <input type="hidden" name="action" value="<%=ski.getId() == 0 ? "create" : "edit"%>" />
-            <input type="hidden" name="id" value="<%=FormatUtils.encode(ski.getId())%>" />
+            <input type="hidden" name="id" value="<%=ski.getId() == 0 ? "" : ski.getId()%>" />
             <table>
                 <tr> <td> Брэнд: </td> <td> <input type="text" name="brand" value="<%=FormatUtils.encode(ski.getBrand())%>" autocomplete="off" /> </td> </tr>
                 <tr> <td> Наименование: </td> <td> <input type="text" name="name" value="<%=FormatUtils.encode(ski.getName())%>" autocomplete="off" /> </td> </tr>
@@ -31,6 +31,6 @@
             </table>
             <input type="submit" value="Сохранить" />
         </form>
-        Вернуться <a href="<%=contextPath%><%=servletPath%>?action=list"> назад </a>
+        Вернуться <a href="<%=contextPath%><%=servletPath%>"> назад </a>
     </body>
 </html>

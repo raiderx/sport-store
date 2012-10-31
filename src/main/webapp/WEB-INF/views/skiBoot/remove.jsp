@@ -5,7 +5,7 @@
 <%@ page import="org.karpukhin.sportstore.core.model.SkiBoot" %>
 <%@ page import="org.karpukhin.sportstore.web.FormatUtils" %>
 <%
-    String contextPath = (String)request.getAttribute("javax.servlet.forward.context_path");
+    String contextPath = (String)request.getContextPath();
     String servletPath = (String)request.getAttribute("javax.servlet.forward.servlet_path");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -32,7 +32,7 @@
                 <tr> <td> Цена: </td> <td> <%=skiBoot.getPrice()%> </td> </tr>
             </table>
             <input type="submit" value="Да" />
-            <input type="button" value="Нет" onclick="window.location='<%=contextPath%><%=servletPath%>?action=list'" />
+            <input type="button" value="Нет" onclick="window.location='<%=contextPath%><%=servletPath%>'" />
         </form>
     </body>
 </html>
