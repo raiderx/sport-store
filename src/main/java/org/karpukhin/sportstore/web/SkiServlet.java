@@ -79,7 +79,7 @@ public class SkiServlet extends HttpServlet {
 			Ski ski = extractModel(request);
 			skiDao.removeSkiById(ski.getId());
 		}
-		response.sendRedirect(String.format("%s%s?action=list", request.getContextPath(), request.getServletPath()));
+		response.sendRedirect(request.getContextPath() + request.getServletPath());
 	}
 
     public void list(HttpServletRequest request, HttpServletResponse response)
